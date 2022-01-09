@@ -26,7 +26,7 @@ function Appbar() {
       <Toolbar>
         <Box display="flex" flexGrow={1}>
           <Typography variant="h6">
-            Usmania Institute Of Islamic Studies
+            Usmania Institute Of Islamic
           </Typography>
         </Box>
         {matches ? (
