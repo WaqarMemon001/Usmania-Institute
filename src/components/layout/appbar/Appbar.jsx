@@ -14,6 +14,16 @@ const useStyles = makeStyles({
   logo: {
     fontFamily: "sans-serif",
   },
+  mainAppBar:{
+    background: "linear-gradient(45deg, #06ba00 70%, #46ff40  40%)",
+    border: 0,
+    borderRadius: 3,
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    color: "white",
+  },
+  menuIcon:{
+    color : 'white',
+  }
 });
 
 function Appbar() {
@@ -22,30 +32,30 @@ function Appbar() {
   const classes = useStyles();
   const [opendrawer, setOpendrawer] = useState(false);
   return (
-    <AppBar color="default">
+    <AppBar className={classes.mainAppBar}>
       <Toolbar>
         <Box display="flex" flexGrow={1}>
           <Typography variant="h6">
-            Usmania Institute Of Islamic Studies
+            Usmania Academy Of Islamic Studies
           </Typography>
         </Box>
-        {matches ? (
-          <IconButton sx={{ marginRight: 3 }} edge="end" color="secondary">
+        {/* {matches ? (
+          <IconButton  edge="end">
             <LanguageOutlinedIcon />
           </IconButton>
         ) : (
-          <>
+          <> */}
             <IconButton
-              sx={{ marginRight: 3 }}
+          
               edge="end"
-              color="secondary"
               onClick={() => setOpendrawer(true)}
+            className={classes.mainicon}
             >
-              <MenuOutlinedIcon />
+              <MenuOutlinedIcon      sx={{ fontSize : 30}} className={classes.menuIcon} />
             </IconButton>
             <MenuDrawer opendrawer={opendrawer} setOpendrawer={setOpendrawer} />
-          </>
-        )}
+          {/* </>
+        )} */}
       </Toolbar>
     </AppBar>
   );

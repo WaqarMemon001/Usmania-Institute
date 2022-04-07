@@ -1,3 +1,6 @@
+import * as React from "react";
+import { makeStyles } from "@mui/styles";
+
 // import {
 //   Routes,
 //   Route,
@@ -14,16 +17,27 @@ import News from './pages/News';
 // import Layout from './components/layout/layout';
 
 
-function App() {
+
+// importing components
+import Footer from "./components/layout/footer/footer"
+
+
+
+
+const App = () => {
+  const classes = useStyles();
   return (
-    <div >
+    <div  className={classes.root}>
       <Appbar />
       <Container sx={{ marginTop: 10 }} >
         <Header />
       </Container>
-      {/* <Layout /> */}
 
-{/* <MenuDrawer /> */}
+      
+      {/* <Layout /> */}   
+
+      {/* <MenuDrawer /> */}
+
 
       {/*
         <Routes>
@@ -37,10 +51,31 @@ function App() {
       {/* <Appbar /> */}
       {/* <MenuDrawer/> */}
       {/* <Header /> */}
--      {/* <Errorpage /> */}
+      -      {/* <Errorpage /> */}
 
+
+      {/* Footer */}
+
+      <Footer className={classes.footer} />
     </div >
   );
 }
+
+
+const useStyles = makeStyles({
+  root: {
+  //   background: "linear-gradient(45deg, #06ba00 70%, #46ff40  40%)",
+  //   border: 0,
+  //   borderRadius: 3,
+  //   boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+  //   color: "white",
+  //   height: 48,
+  //   padding: "0 30px",
+
+  },
+  footer: {
+   
+  }
+});
 
 export default App;
