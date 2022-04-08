@@ -20,7 +20,7 @@ const useStyles = makeStyles({
   },
   drawerList: {
     marginTop: 10,
-    width: 250,
+    width: 280,
   },
 });
 
@@ -38,20 +38,20 @@ function MenuDrawer({ opendrawer, setOpendrawer }) {
       >
         <div className={classes.drawerList}>
           <Box textAlign="center" p={2}>
-            Menu
+          Usmania Academy Of Islamic Studies
           </Box>
           <Divider />
-          <List onClick={()=> setOpendrawer(false)}>
-            <ListItem button >
-              <ListItemText primary={"All"} />
+          <List onClick={() => setOpendrawer(false)}>
+            <ListItem button>
+              <ListItemText primary={"Home"} />
             </ListItem>
             <Divider />
             <ListItem button>
-              <ListItemText primary={"exaple open"} />
+              <ListItemText primary={"Publications"} />
             </ListItem>
             <Divider />
             <ListItem button>
-              <ListItemText primary={"example two"} />
+              <ListItemText primary={"Artilces"} />
             </ListItem>
           </List>
         </div>

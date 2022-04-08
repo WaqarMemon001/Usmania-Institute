@@ -1,5 +1,12 @@
 import React from "react";
-import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  IconButton,
+  Toolbar,
+  Typography,
+  Button,
+} from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import { useTheme } from "@mui/material/styles";
@@ -14,23 +21,37 @@ const useStyles = makeStyles({
   logo: {
     fontFamily: "sans-serif",
   },
-  mainAppBar:{
+  mainAppBar: {
     background: "linear-gradient(45deg, #06ba00 70%, #46ff40  40%)",
     border: 0,
     borderRadius: 3,
     boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
     color: "white",
   },
-  menuIcon:{
-    color : 'white',
-  }
+  menuIcon: {
+    color: "white",
+  },
 });
 
+const pages = [
+  "Home",
+  "Publication",
+  "Articles",
+  "Tarbiyati-Channel",
+  "Daily Dua",
+  "Courses",
+  "About US",
+];
+
 function Appbar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const theme = useTheme();
-  const matches = useMediaQuery("(min-width:810px)");
+  const matches = useMediaQuery("(min-width:1078px)");
   const classes = useStyles();
   const [opendrawer, setOpendrawer] = useState(false);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
   return (
     <AppBar className={classes.mainAppBar}>
       <Toolbar>
@@ -39,23 +60,34 @@ function Appbar() {
             Usmania Academy Of Islamic Studies
           </Typography>
         </Box>
-        {/* {matches ? (
-          <IconButton  edge="end">
-            <LanguageOutlinedIcon />
-          </IconButton>
+
+        {matches ? (
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
         ) : (
-          <> */}
+          <>
             <IconButton
-          
               edge="end"
               onClick={() => setOpendrawer(true)}
-            className={classes.mainicon}
+              className={classes.mainicon}
             >
-              <MenuOutlinedIcon      sx={{ fontSize : 30}} className={classes.menuIcon} />
+              <MenuOutlinedIcon
+                sx={{ fontSize: 30 }}
+                className={classes.menuIcon}
+              />
             </IconButton>
-            <MenuDrawer opendrawer={opendrawer} setOpendrawer={setOpendrawer} />
-          {/* </>
-        )} */}
+            <MenuDrawer opendrawer={opendrawer} setOpendrawer={setOpendrawer} />{" "}
+            
+          </>
+        )}
       </Toolbar>
     </AppBar>
   );

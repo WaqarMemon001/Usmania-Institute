@@ -20,6 +20,7 @@ import News from './pages/News';
 
 // importing components
 import Footer from "./components/layout/footer/footer"
+import Carousel from "./components/Carousel/Carousel";
 
 
 
@@ -27,14 +28,15 @@ import Footer from "./components/layout/footer/footer"
 const App = () => {
   const classes = useStyles();
   return (
-    <div  className={classes.root}>
+    <div className={classes.root}>
       <Appbar />
-      <Container sx={{ marginTop: 10 }} >
+      {/* <Container sx={{ marginTop: 10 }} >
         <Header />
-      </Container>
+      </Container> */}
 
-      
-      {/* <Layout /> */}   
+      <Carousel />
+
+      {/* <Layout /> */}
 
       {/* <MenuDrawer /> */}
 
@@ -64,17 +66,17 @@ const App = () => {
 
 const useStyles = makeStyles({
   root: {
-  //   background: "linear-gradient(45deg, #06ba00 70%, #46ff40  40%)",
-  //   border: 0,
-  //   borderRadius: 3,
-  //   boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-  //   color: "white",
-  //   height: 48,
-  //   padding: "0 30px",
+    //   background: "linear-gradient(45deg, #06ba00 70%, #46ff40  40%)",
+    //   border: 0,
+    //   borderRadius: 3,
+    //   boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    //   color: "white",
+    //   height: 48,
+    //   padding: "0 30px",
 
   },
   footer: {
-   
+
   }
 });
 
