@@ -16,12 +16,24 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   drawer: {
-    marginTop: 100,
+    // marginTop: 100,
   },
   drawerList: {
-    marginTop: 10,
+    // marginTop: 10,
     width: 280,
   },
+  menuheader:{
+    background:  "linear-gradient(45deg, #1a1f1a 70%, #0e63ad 40%)",
+    
+  },
+  menuitems:{
+  color: 'white'
+  },
+  // menufooter:{
+   
+
+  //   background: "linear-gradient()"
+  // },
 });
 
 function MenuDrawer({ opendrawer, setOpendrawer }) {
@@ -34,14 +46,14 @@ function MenuDrawer({ opendrawer, setOpendrawer }) {
         open={opendrawer}
         onClose={() => setOpendrawer(false)}
         onOpen={() => setOpendrawer(true)}
-        className={classes.drawer}
+        className={classes.menufooter}
       >
-        <div className={classes.drawerList}>
-          <Box textAlign="center" p={2}>
-          Usmania Academy Of Islamic Studies
+        <div className={classes.menuheader}>
+          <Box textAlign="center" className={classes.menuitems}  p={2}>
+            Usmania Academy Of Islamic Studies
           </Box>
           <Divider />
-          <List onClick={() => setOpendrawer(false)}>
+          <List onClick={() => setOpendrawer(false)} className={classes.menuitems}  >
             <ListItem button>
               <ListItemText primary={"Home"} />
             </ListItem>
@@ -52,6 +64,22 @@ function MenuDrawer({ opendrawer, setOpendrawer }) {
             <Divider />
             <ListItem button>
               <ListItemText primary={"Artilces"} />
+            </ListItem>
+            <Divider />
+            <ListItem button>
+              <ListItemText primary={"Tarbiyati-Channel"} />
+            </ListItem>
+            <Divider />
+            <ListItem button>
+              <ListItemText primary={"Daily Dua"} />
+            </ListItem>
+            <Divider />
+            <ListItem button>
+              <ListItemText primary={"Courses"} />
+            </ListItem>
+            <Divider />
+            <ListItem button>
+              <ListItemText primary={"About US"} />
             </ListItem>
           </List>
         </div>
