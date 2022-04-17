@@ -21,7 +21,7 @@ import { makeStyles } from "@mui/styles";
 // import ArticleIcon from "@mui/icons-material/Article";
 import ArticleOutlinedIcon from "@mui/icons-material/ArticleOutlined";
 
-import Image from '../Images/image1.jpg'
+import Image from "../Images/image1.jpg";
 // importing components of articles
 
 import articleCard from "../components/article/cards";
@@ -32,6 +32,7 @@ const useStyles = makeStyles({
   },
   articleBody: {
     backgroundColor: "whitesmoke",
+    marginTop: 50,
   },
 });
 
@@ -46,11 +47,11 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-const classes = makeStyles({
-  maindiv :{
-    marginTop : 20
-  }
-})
+  const classes = makeStyles({
+    maindiv: {
+      marginTop: 20,
+    },
+  });
   return (
     <div
       role="tabpanel"
@@ -79,7 +80,6 @@ function a11yProps(index) {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
   };
-
 }
 
 function Articles() {
@@ -92,8 +92,12 @@ function Articles() {
   return (
     <div className={classes.articleBody}>
       <Container>
-        <Box >
-          <Typography variant="h3" color="secondary" sx={{ fontWeight: "600" , paddingTop : 5 }}>
+        <Box>
+          <Typography
+            variant="h4"
+            color="#06ba00"
+            sx={{ fontWeight: "500", paddingTop: 5 }}
+          >
             Articles <ArticleOutlinedIcon fontSize="large" />
           </Typography>
         </Box>
@@ -113,13 +117,70 @@ function Articles() {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            All
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={8}>
+                
+                  <Card>
+                    <CardMedia
+                      component="img"
+                      alt="Islamic Image"
+                      height="200"
+                      image={Image}
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Tittle
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Some Discription About Article
+                      </Typography>
+                    </CardContent>
+                    <CardActions spacing={2}>
+                      <Button size="small"> Read More </Button>
+                      <Button size="small"> Download / Share</Button>
+                    </CardActions>
+                  </Card>
+              </Grid>
+              <Grid item xs={6} md={4}>
+                <Item>xs=6 md=4</Item>
+              </Grid>
+              <Grid item xs={6} md={4}>
+                <Item>xs=6 md=4</Item>
+              </Grid>
+              <Grid item xs={6} md={8}>
+                <Item>xs=6 md=8</Item>
+              </Grid>
+            </Grid>
           </TabPanel>
           <TabPanel value={value} index={1}>
             {/* Adding card in artcile */}
 
-            <Grid container spacing={2}>
-              <Grid item xs={12} md={6}>
+            <Grid container spacing={2} xs={4} md={6}>
+              <Grid item>
+                <Item>
+                  <Card>
+                    <CardMedia
+                      component="img"
+                      alt="Islamic Image"
+                      height="200"
+                      image={Image}
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        Tittle
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Some Discription About Article
+                      </Typography>
+                    </CardContent>
+                    <CardActions spacing={2}>
+                      <Button size="small"> Read More </Button>
+                      <Button size="small"> Download / Share</Button>
+                    </CardActions>
+                  </Card>
+                </Item>
+              </Grid>
+              <Grid item>
                 <Item>
                   <Card sx={{ maxWidth: 500 }}>
                     <CardMedia
@@ -143,7 +204,7 @@ function Articles() {
                   </Card>
                 </Item>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item>
                 <Item>
                   <Card sx={{ maxWidth: 500 }}>
                     <CardMedia
@@ -167,33 +228,9 @@ function Articles() {
                   </Card>
                 </Item>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item>
                 <Item>
-                <Card sx={{ maxWidth: 500 }}>
-                    <CardMedia
-                      component="img"
-                      alt="Islamic Image"
-                      height="140"
-                      image={Image}
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="div">
-                        Tittle
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        Some Discription About Article
-                      </Typography>
-                    </CardContent>
-                    <CardActions spacing={2}>
-                      <Button size="small"> Read More </Button>
-                      <Button size="small"> Download / Share</Button>
-                    </CardActions>
-                  </Card>
-                </Item>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <Item>
-                <Card sx={{ maxWidth: 500 }}>
+                  <Card sx={{ maxWidth: 500 }}>
                     <CardMedia
                       component="img"
                       alt="Islamic Image"

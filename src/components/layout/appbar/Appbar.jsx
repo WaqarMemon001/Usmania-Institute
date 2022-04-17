@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  AppBar,
-  Box,
-  IconButton,
-  Toolbar,
-  Typography,
-  Button,
-} from "@mui/material";
+import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import { useTheme } from "@mui/material/styles";
@@ -15,7 +8,25 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MenuOutlined from "@mui/icons-material/MenuOutlined";
 import { useState } from "react";
 import MenuDrawer from "../../drawer/drawer";
-import Header from "../header/Header";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { Link } from "react-router-dom";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+
+// import Header from "../header/Header";
+
+// importing icons
+
+import HomeIcon from "@mui/icons-material/Home";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import ArticleIcon from "@mui/icons-material/Article";
+import VolunteerActivismOutlinedIcon from "@mui/icons-material/VolunteerActivismOutlined";
+import MenuBookIcon from "@mui/icons-material/MenuBook";
+import { width } from "@mui/system";
 
 const useStyles = makeStyles({
   logo: {
@@ -31,27 +42,22 @@ const useStyles = makeStyles({
   menuIcon: {
     color: "white",
   },
+  Link: {
+    textDecoration: "none",
+    color: "white",
+  },
+  navitems: {
+    alignItems: "center",
+  },
+ 
 });
 
-const pages = [
-  "Home",
-  "Publication",
-  "Articles",
-  "Tarbiyati-Channel",
-  "Daily Dua",
-  "Courses",
-  "About US",
-];
-
 function Appbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const theme = useTheme();
-  const matches = useMediaQuery("(min-width:1078px)");
+  const matches = useMediaQuery("(min-width:830px)");
   const classes = useStyles();
   const [opendrawer, setOpendrawer] = useState(false);
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
+
   return (
     <AppBar className={classes.mainAppBar}>
       <Toolbar>
@@ -60,17 +66,46 @@ function Appbar() {
             Usmania Academy Of Islamic Studies
           </Typography>
         </Box>
-
         {matches ? (
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+          <Box display="flex" flexGrow={1}>
+            <List sx={{ display: "flex" ,width : '100%', alignItems : 'center',}} >
+              <ListItem button className={classes.navitems}>
+                <Link to="/" className={classes.Link}>
+                  <ListItemText>
+                    <Typography variant="h6" className={classes.navitem}>Home</Typography>
+                  </ListItemText>
+                </Link>
+              </ListItem>
+              <ListItem button className={classes.navitems}>
+                <Link to="/Pubication" className={classes.Link}>
+                  <ListItemText>
+                    <Typography variant="h6" className={classes.navitem}>Publication</Typography>
+                  </ListItemText>
+                </Link>
+              </ListItem>
+              <ListItem button className={classes.navitems}>
+                <Link to="/Articles" className={classes.Link}>
+                  <ListItemText>
+                    <Typography variant="h6" className={classes.navitem}>Articles</Typography>
+                  </ListItemText>
+                </Link>
+              </ListItem>
+              <ListItem button className={classes.navitems}>
+                <Link to="/Daily Dua" className={classes.Link}>
+                  <ListItemText>
+                    <Typography variant="h6" className={classes.navitem}>Daily Dua</Typography>
+                  </ListItemText>
+                </Link>
+              </ListItem>
+              <ListItem button className={classes.navitems}>
+                <Link to="/Courses" className={classes.Link}>
+                  <ListItemText>
+                    <Typography variant="h6" className={classes.navitem}>Coures</Typography>
+                  </ListItemText>
+                </Link>
+              </ListItem>
+             
+            </List>
           </Box>
         ) : (
           <>
@@ -84,8 +119,7 @@ function Appbar() {
                 className={classes.menuIcon}
               />
             </IconButton>
-            <MenuDrawer opendrawer={opendrawer} setOpendrawer={setOpendrawer} />{" "}
-            
+            <MenuDrawer opendrawer={opendrawer} setOpendrawer={setOpendrawer} />
           </>
         )}
       </Toolbar>
