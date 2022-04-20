@@ -33,7 +33,9 @@ const useStyles = makeStyles({
     fontFamily: "sans-serif",
   },
   mainAppBar: {
-    background: "linear-gradient(45deg, #06ba00 70%, #46ff40  40%)",
+    // background: "linear-gradient(45deg, #06ba00 70%, #46ff40  40%)",
+    background: "linear-gradient(45deg, #1a1f1a 70%, #0e63ad 40%)",
+
     border: 0,
     borderRadius: 3,
     boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
