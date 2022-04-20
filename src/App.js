@@ -13,8 +13,8 @@ import Articles from './pages/Articles';
 import Home from './pages/Home'
 import Appbar from './components/layout/appbar/Appbar';
 import News from './pages/News';
-
-
+import Courses from "./pages/Courses";
+import Article_01 from "./components/Articles/Article_01";
 
 // importing components
 import Footer from "./components/layout/footer/footer"
@@ -32,16 +32,18 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Articles" element={<Articles />} />
+        <Route path="/Articles/Article" element={<Article_01/>} />
         <Route path="/News" element={<News />} />
         <Route path="/publication" element={<Publications />} />
+        <Route path="/Courses" element={<Courses />} />
         <Route path="*" element={<Errorpage />} />
       </Routes>
       <div className={classes.footer}>
         <Footer />
-      </div>
+      </div> 
     </>
   );
-}
+}  
 
 
 const useStyles = makeStyles({

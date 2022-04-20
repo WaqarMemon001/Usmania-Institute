@@ -49,12 +49,11 @@ const useStyles = makeStyles({
   navitems: {
     alignItems: "center",
   },
- 
 });
 
 function Appbar() {
   const theme = useTheme();
-  const matches = useMediaQuery("(min-width:830px)");
+  const matches = useMediaQuery("(min-width:1060px)");
   const classes = useStyles();
   const [opendrawer, setOpendrawer] = useState(false);
 
@@ -68,43 +67,52 @@ function Appbar() {
         </Box>
         {matches ? (
           <Box display="flex" flexGrow={1}>
-            <List sx={{ display: "flex" ,width : '100%', alignItems : 'center',}} >
-              <ListItem button className={classes.navitems}>
-                <Link to="/" className={classes.Link}>
+            <List sx={{ display: "flex", width: "100%",justifyContent: 'space-between' }}>
+              <Link to="/" className={classes.Link}>
+                <ListItem button className={classes.navitems}>
                   <ListItemText>
-                    <Typography variant="h6" className={classes.navitem}>Home</Typography>
+                    <Typography variant="h6" className={classes.navitem}>
+                      Home
+                    </Typography>
                   </ListItemText>
-                </Link>
-              </ListItem>
-              <ListItem button className={classes.navitems}>
-                <Link to="/Pubication" className={classes.Link}>
+                </ListItem>
+              </Link>
+              <Link to="/Pubication" className={classes.Link}>
+                <ListItem button className={classes.navitems}>
                   <ListItemText>
-                    <Typography variant="h6" className={classes.navitem}>Publication</Typography>
+                    <Typography variant="h6" className={classes.navitem}>
+                      Publication
+                    </Typography>
                   </ListItemText>
-                </Link>
-              </ListItem>
-              <ListItem button className={classes.navitems}>
-                <Link to="/Articles" className={classes.Link}>
+                </ListItem>
+              </Link>
+              <Link to="/Articles" className={classes.Link}>
+                <ListItem button className={classes.navitems}>
                   <ListItemText>
-                    <Typography variant="h6" className={classes.navitem}>Articles</Typography>
+                    <Typography variant="h6" className={classes.navitem}>
+                      Articles
+                    </Typography>
                   </ListItemText>
-                </Link>
-              </ListItem>
-              <ListItem button className={classes.navitems}>
-                <Link to="/Daily Dua" className={classes.Link}>
+                </ListItem>
+              </Link>
+              <Link to="/Daily Dua" className={classes.Link}>
+                <ListItem button className={classes.navitems}>
                   <ListItemText>
-                    <Typography variant="h6" className={classes.navitem}>Daily Dua</Typography>
+                    <Typography variant="h6" className={classes.navitem}>
+                      Daily Dua
+                    </Typography>
                   </ListItemText>
-                </Link>
-              </ListItem>
-              <ListItem button className={classes.navitems}>
-                <Link to="/Courses" className={classes.Link}>
+                </ListItem>
+              </Link>
+              <Link to="/Courses" className={classes.Link}>
+                <ListItem button className={classes.navitems}>
                   <ListItemText>
-                    <Typography variant="h6" className={classes.navitem}>Coures</Typography>
+                    <Typography variant="h6" className={classes.navitem}>
+                      Coures
+                    </Typography>
                   </ListItemText>
-                </Link>
-              </ListItem>
-             
+                </ListItem>
+              </Link>
             </List>
           </Box>
         ) : (
